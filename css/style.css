@@ -1,0 +1,24 @@
+legend{
+    margin: 0 auto;
+}
+.login-area p label{
+    width: 137px;
+    text-align: right;
+    float: left;
+}
+#uemail, #uname, #upassword, #reupassword{
+    margin-left: 10px;
+}
+.resubmit{
+    margin-left: 180px;
+    width: 65px;
+    height: 35px;
+    font-size: 16px;
+    border:none;
+    background: rgb(7,148,228);
+    font-family: Arily, "宋体";
+}
+
+#pwdwrong, #pwdright,#pwdnull {
+    display: none;
+}
