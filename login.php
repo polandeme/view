@@ -5,7 +5,6 @@ doDB();
 	session_start();
 $clean_login_uname = mysql_real_escape_string($_POST['uname']);
 $clean_login_password = MD5($_POST['upassword']);
-// $clean_upassword = MD5($_POST['upassword']);
 
 //检查用户是否存在
 //$login_to_sql = "select uid from user where uname = '".$clean_login_uname."' and upassword = '".$clean_login_password ."' limit 1";
@@ -22,7 +21,6 @@ if($clean_login_password == $res['upassword']){
     $_SESSION['uid'] = $res['uid'];
     $_SESSION['utime'] = $res['uctime'];
     $_SESSION['uemail'] = $res['uemail'];
-    // header("Location:my.php");
 }else{
     echo "登录失败";
 }
