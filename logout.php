@@ -5,6 +5,6 @@ session_start();
 
     unset($_SESSION['uid']);
     unset($_SESSION['uname']);
-    echo '注销登录成功！点击此处 <a href="login.html">登录</a>';
+    echo '注销登录成功！点击此处 <a href="login.php">登录</a>';
     exit;
 ?>
