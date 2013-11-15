@@ -76,13 +76,13 @@ function createThumb($realname, $dir, $path_to_thumbs_dir)
     $oy = imagesy($im);
 
     $nx = $final_width_of_image;
-    $ny = ($oy * ($nx / $ox));
+    $ny = ($nx * ($oy / $ox));
 
-    $nm = imagecreatetruecolor($ny, $ny);
+    $nm = imagecreatetruecolor($nx, $ny);
 
-    imagecopyresized($nm, $im, 0, 0, 0, 0, $ny, $ny, $ox, $oy);
+    imagecopyresized($nm, $im, 0, 0, 0, 0, $nx, $ny, $ox, $oy);
     imagejpeg($nm, $path_to_thumbs_dir . $realname );
-
+ 
     echo $path_to_thumbs_dir . $realname;
 }
 createThumb($realname, $dir , $path_to_thumbs_dir);
