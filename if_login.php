@@ -9,7 +9,8 @@ function is_login()
 	}
 	else
 	{
-		echo "请先登录";
+		echo "请先";
+        echo "<a href=login.php>登录</a>";
         $fLogin = 0;
 	}
 }

@@ -78,7 +78,6 @@ window.onload = function () {
 
 <body>
     <div id="content">
-
 	<h2>upload images</h2>
 	<form id="form1" action="test.php" method="post" enctype="multipart/form-data">
 			<div id="divSWFUploadUI">
@@ -92,6 +91,13 @@ window.onload = function () {
 			</p>
 		</div>
 	</form>
+    <form method="post" action="imagesMsg.php">
+        <input type="radio" name="imgCat" value = "游记"> 游记</input>
+        <input type = "radio" name= "imgCat" value = "历史"> 历史</input>
+        <label for="desText">描述 </label>
+        <input type="text" name="desText" id = "desText" ></input>
+        <input type="submit" name="imgSubmit" value="确认上传">
+    </form>
 </div>
 </body>
 </html>

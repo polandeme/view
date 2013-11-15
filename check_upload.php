@@ -59,7 +59,7 @@ $fullImage = $dir . $filename;
 $save_img_sql = "insert into up_images 
     (img_dir, img_time, img_size, img_owner, img_cate) 
     values 
-    ('$dir . $realname', now(), '$filesize', 'uname', 'lvyou' )";
+    ('$dir . $realname', now(), '$filesize', '$uname', 'lvyou' )";
 $save_img_res = mysql_query($save_img_sql) or die(mysql_error());
 
 
