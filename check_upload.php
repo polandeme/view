@@ -11,6 +11,8 @@ else
 {
 	//echo "no session";
 }
+//global $aImgIds;
+$aImgIds = array();
 
 $dir = "upfile/";
 $path_to_thumbs_dir = "thumb/";
@@ -55,13 +57,32 @@ else
 }
 $fullImage = $dir . $filename;
 //保存文件数据到数据库
-//名字，地址，上传者，分类，时间
+//名字，地址，上传者，分类  
+$mdFileName = MD5($dir  . $realname);
 $save_img_sql = "insert into up_images 
-    (img_dir, img_time, img_size, img_owner, img_cate) 
+    (img_dir, img_time, img_size, img_owner) 
     values 
-    ('$dir . $realname', now(), '$filesize', '$uname', 'lvyou' )";
+    ('$mdFileName', now(), '$filesize', '$uname')";
 $save_img_res = mysql_query($save_img_sql) or die(mysql_error());
+    
+//获取最后一个插入数据库的id并追加的数组中。
+if(isset($_SESSION['count']))
+{
+    $_SESSION['imgId' . $_SESSION['count']] = $mdFileName;
+   // echo $_SESSION['imgId' . $_SESSION['count']];
+$_SESSION['count']++;    
+//echo $_SESSION['count'];
+}
+else{
+    //echo "error";
+    $_SESSION['count'] = 0;
+}
 
+//echo $_SESSION[1];
+
+//array_push($aImgIds,$lastId);
+//$_SESSION['aImgIds'] = $aImgIds;
+//print_r($_SESSION['aImgIds']);
 
 //创建缩略图
 function createThumb($realname, $dir, $path_to_thumbs_dir)

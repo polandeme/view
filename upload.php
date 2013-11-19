@@ -87,7 +87,7 @@ window.onload = function () {
 				<span id="upsubmit"></span>
 				<input id="btnCancel" type="button" value="取消所有上传" disabled="disabled" style="margin-left: 2px; height: 29px; font-size: 8pt;" />
                 <div id ="showImg"> </div>
-				<br />
+				<br/>
 			</p>
 		</div>
 	</form>

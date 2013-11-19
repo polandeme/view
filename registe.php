@@ -40,6 +40,7 @@ if(isset($_SESSION['uname']))
                     <label for="varify_code"> 验证码 </label>
                     <input type="text" class="varify_code" name="varify_code">
                     <span> <img src=></span>
+                    <span id = "check_code"></span>
                 </p>
                
 
@@ -47,20 +48,7 @@ if(isset($_SESSION['uname']))
             </form>
         </fieldset>
 <script type="text/javascript">
-$("img").attr("src" , "varify_code.php?" + Math.random() );
-$(".varify_code").change(function(){
-var tcode = $(".varify_code").val();
-$.post("check_varify.php?" + Math.random(), {code: tcode},function(msg)
-{
-    if(msg == "1")
-    {
-        alert("right");
-    }
-    else{
-        alert(msg);
-    }
-});
-});
+
 
 //alert($_SESSION["code"])
 
@@ -77,20 +65,21 @@ $.post("check_varify.php?" + Math.random(), {code: tcode},function(msg)
     alert("wrong");
 }
 });*/
+
  
         $(".resubmit").attr('disabled' , true);
 
                 $().ready(check());
                 var judge_name = null, judge_email, judge_password,
-                judge_repassword;
+                judge_repassword, fCode;
                 function check(){
 
                 function check_all(){
                     // alert(1);
-                    if((judge_name =='yes') && (judge_email =='yes') && (judge_repassword=="yes")){
+                    if((judge_name =='yes') && (judge_email =='yes') && (judge_repassword=="yes") && fCode){
                         $(".resubmit").attr('disabled' , false);
                     } else{
-                        $(".resubmit").attr('disabled' , true);
+                        $(".resubmit").attr('disabled' , true); 
                     }
                 }
 
@@ -206,6 +195,36 @@ $.post("check_varify.php?" + Math.random(), {code: tcode},function(msg)
                     
                     check_all();
                 });
+
+                $("img").attr("src" , "varify_code.php?" + Math.random() );
+                /*$.ajax({
+                    type: 'get',
+                    url: "'varify_code.php' + Math.random()",
+                    
+                })*/
+                $("img").click(function(){
+                    this.src =this.src+'?';
+                });
+                $(".varify_code").change(function(){
+        var tcode = $(".varify_code").val(); //用户输入的验证码
+        $.post("check_varify.php?" + Math.random(), {code: tcode},function(msg)
+        {
+            var check_code = $("#check_code");
+            if(msg == "1")
+            {
+                check_code.html("right");
+                fCode = true;
+                check_all();
+                //alert("right");
+            }
+            else{
+            alert(msg);
+            fCode = false;
+            check_all();
+        }
+        });
+    });
+
             }
         </script>
     </body>
