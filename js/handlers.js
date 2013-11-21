@@ -217,7 +217,7 @@ function uploadSuccess(file, serverData) {
         // var data = ajax_get_image();
         //alert("hh");
         //alert(data);
-        alert(serverData);
+        //alert(serverData);
         addImage(serverData);
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
         //alert(file.name);

@@ -1,6 +1,10 @@
 <?php
 include 'common.php';
 doDB();
+//保存登录状态，时间一天
+$lifeTime = 24 * 3600;   
+session_set_cookie_params($lifeTime);
+
 session_start();
 $clean_login_uname = mysql_real_escape_string($_POST['uname']);
 $clean_login_password = MD5($_POST['upassword']);

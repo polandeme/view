@@ -76,6 +76,9 @@ $_SESSION['count']++;
 else{
     //echo "error";
     $_SESSION['count'] = 0;
+     $_SESSION['imgId' . $_SESSION['count']] = $mdFileName;
+   // echo $_SESSION['imgId' . $_SESSION['count']];
+    $_SESSION['count']++;    
 }
 
 //echo $_SESSION[1];

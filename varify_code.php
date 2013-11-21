@@ -6,7 +6,7 @@
 		private $distrubcode;
 		private $fonturl;
 		private $session;
-		function __construct($width = 120,$height = 30,$counts = 5,$distrubcode="1235467890qwertyuipkjhgfdaszxcvbnm",$fonturl="C:\Windows\Fonts\TektonPro-BoldCond.otf"){
+		function __construct($width = 120,$height = 30,$counts = 4,$distrubcode="1235467890qwertyuipkjhgfdaszxcvbnm",$fonturl="C:\Windows\Fonts\TektonPro-BoldCond.otf"){
 			$this->width=$width;
 			$this->height=$height;
 			$this->counts=$counts;
@@ -36,7 +36,7 @@
 		}
 		private function setdistrubecode($im){
 			$count_h=$this->height;
-			$cou=floor($count_h*2);
+			$cou=floor($count_h);
 			for($i=0;$i<$cou;$i++){
 				$x=rand(0,$this->width);
 				$y=rand(0,$this->height);
@@ -85,7 +85,7 @@
 		}
 	}
 	Header("Content-type: image/GIF");
-	$imagecode=new  Imagecode(160,50);
+	$imagecode=new  Imagecode(130,53);
     $imagecode->imageout();
     //echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
     //echo $_SESSION['set_code'];
