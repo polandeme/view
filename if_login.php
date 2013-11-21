@@ -14,11 +14,11 @@ function is_login()
         $fLogin = 0;
 	}
 }
+//显示用户信息
 function showUserMessage($uname)
 {
 	echo $uname;
 	echo "&nbsp;&nbsp;&nbsp;<a href = logout.php>退出 </a>";
     $fLogin = 1;
 }
-
 ?>
